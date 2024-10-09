@@ -1,29 +1,34 @@
 <?php
 // Buat variabel JSON
 $json_data = '{
-    "name": "John Doe",
-    "age": 30,
-    "email": "john.doe@example.com",
+    "nama": "Vina Restanti",
+    "umur": 20,
+    "email": "vinarestanti17@gmail.com",
     "address": {
-        "street": "123 Main St",
-        "city": "New York",
-        "state": "NY"
+        "kota": "Semarang",
+        "negara": "Indonesia"
     }
 }';
 
 // Decode ke dalam bentuk PHP Object
 $decoded_object = json_decode($json_data);
 
-// Akses nilai dari PHP Object
-echo "Name (Object): " . $decoded_object->name . "\n";
-echo "Age (Object): " . $decoded_object->age . "\n";
-echo "City (Object): " . $decoded_object->address->city . "\n";
+// Tampilkan hasil PHP Object dalam tabel
+echo "<h3>Hasil Output Objek:</h3>";
+echo "<table border='1' cellpadding='10'>";
+echo "<tr><th>Nama</th><td>" . $decoded_object->nama . "</td></tr>";
+echo "<tr><th>Umur</th><td>" . $decoded_object->umur . "</td></tr>";
+echo "<tr><th>Kota</th><td>" . $decoded_object->address->kota . "</td></tr>";
+echo "</table>";
 
 // Decode ke dalam bentuk PHP Array
 $decoded_array = json_decode($json_data, true);
 
-// Akses nilai dari PHP Array
-echo "Name (Array): " . $decoded_array['name'] . "\n";
-echo "Age (Array): " . $decoded_array['age'] . "\n";
-echo "City (Array): " . $decoded_array['address']['city'] . "\n";
+// Tampilkan hasil PHP Array dalam tabel
+echo "<h3>Hasil Output Array:</h3>";
+echo "<table border='1' cellpadding='10'>";
+echo "<tr><th>Nama</th><td>" . $decoded_array['nama'] . "</td></tr>";
+echo "<tr><th>Umur</th><td>" . $decoded_array['umur'] . "</td></tr>";
+echo "<tr><th>Kota</th><td>" . $decoded_array['address']['negara'] . "</td></tr>";
+echo "</table>";
 ?>
